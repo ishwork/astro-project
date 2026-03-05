@@ -1,5 +1,14 @@
 ---
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
 import '@/styles/layout.scss';
+
+interface Props {
+  preloadImageUrl?: string;
+  pageTitle?: string;
+}
+
+const { preloadImageUrl, pageTitle = 'Trending Movies Explorer' } = Astro.props;
 ---
 
 <!doctype html>
@@ -9,10 +18,19 @@ import '@/styles/layout.scss';
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
+    <link rel="preconnect" href="https://image.tmdb.org" crossorigin />
+    {preloadImageUrl ? <link rel="preload" as="image" href={preloadImageUrl} /> : null}
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
-    <slot />
+    <div class="site-shell">
+      <Header />
+      <div class="site-content">
+        <slot />
+      </div>
+
+      <Footer />
+    </div>
   </body>
 </html>

@@ -1,46 +1,55 @@
-# Astro Starter Kit: Basics
+# Trending Movies Explorer
+
+Astro pre-renders movie data from TMDB and hydrates a React UI for interactive searching and filtering.
+
+## Features
+
+- Astro pre-renders popular movies from https://api.themoviedb.org (TMDB)
+- React search and filter UI (search text, minimum rating, favorites-only, watchlist-only)
+- Zustand global state for favorites, watchlist, and filters
+- Favorites and watchlist are persisted with Zustand `persist`
+- Dynamic movie details pages at `/movies/[id]`
+- Front page cards include title, year, rating, and genres
+
+## Setup
+
+1. Install dependencies:
 
 ```sh
-npm create astro@latest -- --template basics
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+2. Create a `.env` file in the project root and add your TMDB key:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```env
+TMDB_API_KEY=your_tmdb_api_key
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+3. Start development server:
 
-## 🧞 Commands
+```sh
+npm run dev
+```
 
-All commands are run from the root of the project, from a terminal:
+## Routes
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- `/` → popular movies list with filters, favorites, watchlist
+- `/movies/[id]` → movie details page with a back button to home
 
-## 👀 Want to learn more?
+## Scripts
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+| Command | Action |
+| :-- | :-- |
+| `npm run dev` | Start local dev server |
+| `npm run build` | Build production site |
+| `npm run preview` | Preview production build |
+| `npm run format` | Format project files |
+
+## Technologies used
+
+- Astro (static generation + routing)
+- React (interactive UI)
+- Zustand (global state management)
+- TypeScript (typed app models and API helpers)
+- Sass (component and layout styling)
+- TMDB API (movie and genre data source)

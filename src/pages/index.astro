@@ -1,8 +1,12 @@
 ---
 import Home from '@/components/Home.astro';
+import { getTrendingMovies } from '@/lib/getTrendingMovies';
 import Layout from '@/layouts/Layout.astro';
+
+const trendingMovies = await getTrendingMovies();
+const firstPosterUrl = trendingMovies[0]?.posterPath ?? undefined;
 ---
 
-<Layout>
-  <Home />
+<Layout preloadImageUrl={firstPosterUrl} pageTitle="Trending Movies Explorer">
+  <Home trendingMovies={trendingMovies} />
 </Layout>
