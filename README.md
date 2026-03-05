@@ -2,6 +2,10 @@
 
 Astro pre-renders movie data from TMDB and hydrates a React UI for interactive searching and filtering.
 
+🔗 **Live:**
+
+- Vercel: [https://movie-nest-mu.vercel.app](https://movie-nest-mu.vercel.app)
+
 ## Features
 
 - Astro pre-renders popular movies from https://api.themoviedb.org (TMDB)
